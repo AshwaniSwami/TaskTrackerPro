@@ -40,3 +40,7 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "google-chrome-stable https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
