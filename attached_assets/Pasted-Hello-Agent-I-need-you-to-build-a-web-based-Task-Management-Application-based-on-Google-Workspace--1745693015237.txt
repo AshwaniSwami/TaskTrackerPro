@@ -1,0 +1,66 @@
+Hello Agent,
+
+I need you to build a web-based Task Management Application based on Google Workspace technologies. Please adhere to the following requirements:
+
+Project Goal: Create a user-friendly, visually engaging application to add, edit, and track tasks with automated email reminders.
+
+1. Backend:
+
+Use Google Sheets as the database.
+Set up a sheet named 'Tasks' with the following columns: TaskID (Unique ID), Title (Text), DueDate (Date), ReminderFrequency (Text, e.g., "Every 3 days", "Every 5 days", "Weekly", "None"), Status (Text, e.g., "Pending", "In Progress", "Completed"), CreatedAt (Timestamp), LastReminderSent (Timestamp).
+2. Frontend:
+
+Use HTML, CSS, and JavaScript.
+Crucially, design a clean, modern, intuitive, and highly responsive User Interface (UI).
+Incorporate engaging graphics and visuals. Think about using:
+Icons: For actions (add, edit, delete), status indicators, priority levels, dates, etc. (e.g., Font Awesome or similar).
+Color-Coding: Use colors effectively to differentiate task statuses, priorities, or upcoming deadlines.
+Visual Feedback: Use subtle animations or transitions for user actions (e.g., adding a task, completing a task).
+Layout: Consider a card-based layout for tasks or a clean table layout. Ensure it adapts smoothly to different screen sizes (desktops, tablets, mobiles).
+Potential Graphics: Maybe a simple progress bar for task completion if implementing status tracking, or visually distinct buttons and form elements.
+3. Core Functionality:
+
+Add Task:
+A clear form (potentially a modal popup or dedicated section) with fields for:
+Title (Text input)
+DueDate (Date picker input)
+ReminderFrequency (Dropdown select menu with options like: "None", "Daily", "Every 3 days", "Every 5 days", "Weekly", "Bi-Weekly").
+Upon submission, add the new task data to the Google Sheet and update the UI. Assign a unique TaskID and set Status to "Pending" and CreatedAt timestamp.
+View/Track Tasks:
+Display the list of tasks fetched from the Google Sheet.
+Show Title, DueDate, ReminderFrequency, and Status for each task.
+Make the display visually appealing and easy to scan (using the graphics/visuals mentioned above).
+Edit Task:
+Provide a way to edit existing tasks (e.g., an 'Edit' button next to each task).
+Editing should allow changing Title, DueDate, ReminderFrequency, and Status.
+Update the corresponding row in the Google Sheet and refresh the UI.
+Automated Email Reminders:
+Implement logic (likely using Google Apps Script linked to the Sheet) to send email reminders.
+The script should trigger automatically (e.g., daily).
+For each task not marked "Completed":
+Check the ReminderFrequency.
+If a frequency is set (not "None"), check the LastReminderSent date.
+If the time elapsed since LastReminderSent (or CreatedAt if never sent) matches the ReminderFrequency interval (e.g., 3 days have passed for "Every 3 days"), send an email reminder.
+The email should clearly state the Task Title and Due Date.
+Update the LastReminderSent timestamp in the sheet after sending.
+4. Google Apps Script (Code.gs):
+
+Provide the necessary Google Apps Script functions to:
+doGet(e): Serve the HTML frontend.
+Functions to addTask(taskData), editTask(taskData), getTasks(), deleteTask(taskId) (optional, but good).
+A function sendReminders() to handle the email reminder logic.
+Instructions on how to set up the time-driven trigger for sendReminders().
+5. Bonus Features (Implement if possible):
+
+Priority Tagging: Add a 'Priority' column (e.g., Low, Medium, High) to the sheet and UI, perhaps using color-coded tags.
+Status Filters: Allow users to filter the task list by Status (e.g., show only "Pending" or "Completed" tasks).
+Dashboard View: A simple visual overview section (e.g., number of pending tasks, tasks due today/this week). Could use simple charts generated with JavaScript or even just styled summary boxes.
+Mark as Complete: A quick way (e.g., a checkbox or button) to change a task's Status to "Completed". Completed tasks could be styled differently (e.g., grayed out, strikethrough).
+Deliverables:
+
+index.html file for the frontend structure.
+style.css file for the styling (ensure it's responsive and visually appealing).
+script.js file for the frontend JavaScript logic (fetching data, handling forms, updating UI).
+Code.gs file containing the Google Apps Script backend logic and reminder function.
+Clear comments in the code explaining the different parts, especially the Apps Script logic and setup required (like triggers).
+Focus strongly on creating a polished, responsive, and visually engaging user experience. Good luck!"
